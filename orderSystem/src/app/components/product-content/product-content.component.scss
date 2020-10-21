@@ -1,0 +1,124 @@
+/* .back{
+  height: 3.8rem;
+  line-height: 3.8rem;
+  width: 3.8rem;
+  border-radius: 50%;
+  background: #000;
+  position: fixed;
+  top: .5rem;
+  left: .5rem;
+  color: #fff;
+}
+.back:before{
+  content: "";
+  display: block;
+  width: .8rem;
+  height: .8rem;
+  border-left: .2rem solid #fff;
+  float: left;
+  position: relative;
+  top: 1.3rem;
+  left: .6rem;
+  transform: rotate(45deg);
+  margin-right: .4rem;
+}
+
+.p-content .p-info{
+  background: #fff;
+}
+.p-content .p-info img{
+  width: 1005;
+  height: 18rem;
+}
+.p-content .p-info h2{
+  padding: .2rem .5rem;
+}
+.p-content .p-info .price{
+  padding: .2rem .5rem;
+  color: red;
+}
+.p-content .p-detail{
+  background: #fff;
+
+}
+ */
+.top .back{
+  width: 40px;
+  height: 40px;
+  // background-image: url(../../../assets/imgs/back.png);
+  background-color: rgba($color: rgb(231, 183, 183), $alpha: 0.5);
+  // background-size: contain;
+  position: absolute;
+  border-radius: 50%;
+}
+.top .back:hover{
+  background-color: rgba($color: rgb(26, 20, 20), $alpha: 0.5);
+}
+ .detail {
+  padding: 1rem;
+  overflow: hidden;
+  background: #fff;
+}
+.detail-con {
+  margin-top: 10px;
+  background: #fff;
+  padding: 1rem;
+}
+.top img {
+  width: 100%;
+}
+.price {
+  border-bottom: 1px solid #ddd;
+}
+.price b {
+  color: #f60;
+  font-size: 1.8rem;
+}
+.price span {
+  color: #999;
+}
+.kucun p {
+  color: #666;
+}
+.comment {
+  background: #fff;
+  overflow: hidden;
+  padding: 1rem;
+  margin-top: 10px;
+}
+.comment li {
+  float: left;
+  font-size: 0.8rem;
+  background: #f5ece7;
+  color: #7c7877;
+  margin-right: 5px;
+  margin-top: .3rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+}
+
+.fixed-btn {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  background: #fff;
+  width: 100%;
+}
+.fixed-btn li {
+  float: left;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50px;
+}
+.fixed-btn li a {
+  width: 80%;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  padding: 7px 40px;
+  line-height: 18px;
+}
+.current {
+  background: #f60;
+  color: #fff;
+}

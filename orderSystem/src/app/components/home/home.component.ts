@@ -1,3 +1,4 @@
+import { CommonService } from './../../services/common.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public common:CommonService) { }
 
   ngOnInit(): void {
+    let api = 'api/productlist'
+    this.common.get(api).then((res)=>{
+      console.log(res);
+
+    })
   }
 
 }
