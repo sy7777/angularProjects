@@ -1,8 +1,9 @@
 <div class="main">
 
     <div class="zhishu">
-      <div class="zhishu-list">
-        <div class="zhishu-item" *ngFor="let item of quoteList">
+      <div class="zhishu-list" [style]="circlePosition">
+        <div class="zhishu-item" *ngFor="let item of quoteList"
+        [ngClass]="{'neg': isNeg(item.quote.percent) == true}">
           <div class="zhishu-item-left">
             <h3>{{item.quote.name}} </h3>
             <div>{{item.quote.open}} </div>
@@ -15,12 +16,11 @@
             </svg>
           </div>
       </div>
+      </div>
       <div class="circleList">
         <div class="circle" (click)="toggleZhishu(0)"></div>
         <div class="circle" (click)="toggleZhishu(1)"></div>
         <div class="circle" (click)="toggleZhishu(2)"></div>
-      </div>
-
       </div>
     </div>
 </div>

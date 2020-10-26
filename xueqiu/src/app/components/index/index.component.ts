@@ -7,7 +7,7 @@ import Axios from 'axios';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-
+  circlePosition= {transform: "translate(0px)"};
   quoteList = []
   constructor() {
     // 在这里调用
@@ -27,6 +27,16 @@ export class IndexComponent implements OnInit {
   }
 
   toggleZhishu(index){
+    this.circlePosition = {transform: `translate(-${index*576}px)`};
+  }
+
+  isNeg(num){
+    if (num < 0){
+      return true;
+    }
+    if(num >= 0 ){
+      return false;
+    }
 
   }
 
