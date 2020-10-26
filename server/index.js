@@ -3,6 +3,13 @@ let express = require("express");
 let axios = require("axios");
 // 实例化一个APP
 let app = express();
+// 中间键做跨域操作
+app.use((req, res, next)=>{
+  res.append('Access-Control-Allow-Origin',"*");
+  res.append('Access-Control-Allow-Content-Type',"*");
+  // Access-Control-Allow-Origin
+  next();
+})
 let options = {
   headers: {
     // "Accept": "application/json, text/plain, */*",

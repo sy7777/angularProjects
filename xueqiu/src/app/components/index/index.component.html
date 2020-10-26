@@ -1,0 +1,26 @@
+<div class="main">
+
+    <div class="zhishu">
+      <div class="zhishu-list">
+        <div class="zhishu-item" *ngFor="let item of quoteList">
+          <div class="zhishu-item-left">
+            <h3>{{item.quote.name}} </h3>
+            <div>{{item.quote.open}} </div>
+            <p>{{item.quote.percent}} </p>
+          </div>
+          <div class="svg">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 32.8px;">
+              <path class="StockSlider_last-close_3k-" d="M0 20 L50 20"></path>
+              <path class="StockSlider_polyline_YMO" d="M0 25 L0 23 L0 23 L0 24 L1 24 L1 24 L1 24 L2 23 L2 20 L2 17 L3 10 L3 10 L3 7 L4 6 L4 6 L4 5 L5 5 L5 6 L5 8 L6 10 L6 7 L6 10 L7 11 L7 13 L7 20 L8 18 L8 17 L8 19 L9 17 L9 19 L9 19 L10 20 L10 17 L10 13 L11 13 L11 12 L11 13 L12 14 L12 13 L12 14 L13 13 L13 10 L13 9 L14 7 L14 7 L14 5 L15 3 L15 4 L15 4 L16 7 L16 7 L16 8 L17 10 L17 11 L17 11 L18 11 L18 13 L18 14 L19 14 L19 14 L19 16 L20 15 L20 13 L20 14 L21 13 L21 11 L21 9 L22 8 L22 8 L22 9 L23 10 L23 13 L23 13 L24 13 L24 13 L24 15 L25 16 L25 15 L25 14 L26 15 L26 18 L26 19 L27 20 L27 19 L27 21 L28 23 L28 23 L28 23 L29 23 L29 23 L29 23 L30 21 L30 20 L30 20 L31 17 L31 17 L31 18 L32 16 L32 14 L32 10 L33 11 L33 11 L33 12 L34 12 L34 12 L34 9 L35 11 L35 12 L35 14 L36 16 L36 18 L36 17 L37 17 L37 15 L37 15 L38 12 L38 12 L38 12 L39 13 L39 14 L39 14"></path><circle class="StockSlider_breathingLight_3M6" r="5" cx="39" cy="14"></circle>
+            </svg>
+          </div>
+      </div>
+      <div class="circleList">
+        <div class="circle" (click)="toggleZhishu(0)"></div>
+        <div class="circle" (click)="toggleZhishu(1)"></div>
+        <div class="circle" (click)="toggleZhishu(2)"></div>
+      </div>
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+.main{
+  width: 960px;
+  margin: 0 auto;
+}
+.zhishu-item{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  .zhishu-item-left{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .zhishu-item-left h3{
+    margin: 5px 0px;
+  }
+  .zhishu-item-left>div{
+    font-size: 18px;
+    font-weight: 900;
+    color: orangered;
+  }
+  .zhishu-item-left>p{
+    font-size: 12px;
+    font-weight: 600;
+    color: orangered;
+  }
+  .svg svg{
+    padding: 1px;
+    width: 140px;
+    height: 56px;
+    // transform: scale(.5);
+  }
+}
+.zhishu{
+  width: 540px;
+  overflow: hidden;
+  height: 100px;
+  margin: 0 auto;
+  .circleList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .circle{
+      width: 5px;
+      height: 5px;
+      border: 2.5px solid #ccc;
+      border-radius: 3px;
+      margin: 5px;
+    }
+  }
+}
+.zhishu-list{
+  width: 1920px;
+  display: flex;
+  // margin: 0 auto;
+
+}
+.StockSlider_home__stock-index__item_1V7, .StockSlider_chart_2e2, svg {
+  display: block;
+/*   -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.3); */
+  -webkit-transform-origin: left 90%;
+  -ms-transform-origin: left 90%;
+  -o-transform-origin: left 90%;
+  transform-origin: left 80%;
+  overflow: visible;
+}
+.StockSlider_home__stock-index__item_1V7, .StockSlider_chart_2e2, .StockSlider_last-close_3k- {
+  fill: none;
+  stroke: #666c72;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6,6;
+  // transform: scale(0.8);
+}
+.StockSlider_gain_1xU {
+  color: #d20!important;
+}
+.StockSlider_slip_3tc {
+  stroke: #093!important;
+}
+.StockSlider_home__stock-index__item_1V7, .StockSlider_chart_2e2, .StockSlider_polyline_YMO {
+  fill: none;
+  stroke-width: 2;
+}
+.StockSlider_slip_3tc, .StockSlider_polyline_YMO {
+  stroke: #093;
+}
+.StockSlider_gain_1xU, .StockSlider_polyline_YMO {
+  stroke: #d20;
+}
+.StockSlider_home__stock-index__item_1V7, .StockSlider_chart_2e2, .StockSlider_breathingLight_3M6 {
+  -webkit-animation: StockSlider_breathing_d8N 1s infinite alternate;
+  -o-animation: StockSlider_breathing_d8N 1s infinite alternate;
+  animation: StockSlider_breathing_d8N 1s infinite alternate;
+  -moz-animation: none;
+}
+.StockSlider_gain_1xU, .StockSlider_breathingLight_3M6 {
+  fill: #d20;
+}
+@keyframes StockSlider_breathing_d8N{
+  0% {
+    opacity: .3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
