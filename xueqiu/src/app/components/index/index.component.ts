@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import Axios from 'axios';
 
@@ -9,7 +10,7 @@ import Axios from 'axios';
 export class IndexComponent implements OnInit {
   circlePosition= {transform: "translate(0px)"};
   quoteList = []
-  constructor() {
+  constructor(public router: Router) {
     // 在这里调用
     this.getData();
   }
@@ -22,7 +23,7 @@ export class IndexComponent implements OnInit {
     let result = await Axios.get(httpUrl);
 
     this.quoteList = result.data.data.items
-    console.log(this.quoteList);
+    // console.log(this.quoteList);
 
   }
 
@@ -37,8 +38,15 @@ export class IndexComponent implements OnInit {
     if(num >= 0 ){
       return false;
     }
-
   }
 
+  tabEvent(index){
+    let pathList = ['recommand', 'dayinfo'];
+    this.router.navigate([pathList[index]], {
+      queryParams:{
+        key:pathList[index]
+      }
+    })
+  }
 }
 

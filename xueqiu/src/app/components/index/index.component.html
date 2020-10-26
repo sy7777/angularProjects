@@ -23,4 +23,14 @@
         <div class="circle" (click)="toggleZhishu(2)"></div>
       </div>
     </div>
+    <div class="content">
+      <div class="newsTab">
+<!--         <div class="tabBtn" (click)="tabEvent(0)">雪球热帖</div>
+        <div class="tabBtn" (click)="tabEvent(1)">7 x 24</div> -->
+        <div class="tabBtn" [routerLink]="[ '/recommand' ]" routerLinkActive = 'active'>雪球热帖</div>
+        <div class="tabBtn" [routerLink]="[ '/dayinfo' ]" routerLinkActive = 'active'>7 x 24</div>
+      </div>
+      <router-outlet></router-outlet>
+
+    </div>
 </div>

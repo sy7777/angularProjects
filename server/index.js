@@ -58,9 +58,14 @@ app.get('/api/index/hotStock', async (req, res) => {
 
 // 股票新闻
 app.get('/api/index/news', async (req, res) => {
-  // category:15热帖，6=》7*24：https://xueqiu.com/statuses/livenews/list.json?since_id=-1&max_id=-1&count=15,105=》沪深，115=》科创板，没有就默认为-1
-  let category = req.query.category?req.query.category:15;
-  let httpUrl = `https://xueqiu.com/statuses/hot/listV2.json?since_id=-1&max_id=-1&size=15`;
+  // category:15热帖，
+  // 6=》7*24：https://xueqiu.com/statuses/livenews/list.json?since_id=-1&max_id=-1&count=15,105=》沪深，115=》科创板，没有就默认为-1
+  // let category = req.query.category?req.query.category:"hot/listV2";
+  // let httpUrl = `https://xueqiu.com/statuses/hot/listV2.json?since_id=-1&max_id=-1&size=15`;
+  const {
+    category
+  } = req.query
+  let httpUrl = `https://xueqiu.com/statuses/${category||"hot/listV2"}.json?since_id=-1&max_id=-1&size=15`;
   let result = await axios.get(httpUrl, options);
   res.json(result.data);
 })

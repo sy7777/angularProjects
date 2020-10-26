@@ -1,0 +1,17 @@
+<div class="day-info">
+  <div class="current-time">
+    <span class="day">{{currentTime | date:"dd"}}日</span>
+    <span class="month">{{currentTime | date:"MM"}}月</span>
+  </div>
+  <div class="info-list">
+    <div class="info-item" *ngFor="let item of dayInfoList">
+      <div class="info-left">
+        <p class="info-time">{{item.created_at | time | date:"MM-dd "}}</p>
+      </div>
+      <div class="info-right">
+        <p class="info">{{item.text}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

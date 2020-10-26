@@ -1,0 +1,81 @@
+.day-info {
+  .current-time {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .current-time .month {
+    font-size: 20px;
+    font-weight: 300;
+    color: #999;
+  }
+  .current-time .day {
+    font-size: 35px;
+    font-weight: 700;
+    color: #f70;
+    margin: 0 10px;
+  }
+  .info-list {
+    width: 540px;
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      width: 540px;
+      height: 112px;
+    }
+    .info-right {
+      width: 464px;
+      height: 133px;
+
+      // position: relative;
+      // font-size: 14px;
+      // line-height: 1.6;
+      // padding-bottom: 5px;
+      // word-wrap: break-word; /* 内容存在英语或数字时强制换行 */
+      // overflow: hidden; /* 隐藏溢出部分 */
+      // text-overflow: ellipsis; /* 显示省略符号来代表被隐藏的文本 */
+      // display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+      // -webkit-box-orient: vertical; /* 设置盒子内排列顺序为纵向 */
+      // -webkit-line-clamp: 3; /* 限制块元素显示的文本的行数 */
+      // max-height: 123px;
+      .info {
+        position: relative;
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 5px;
+        word-wrap: break-word; /* 内容存在英语或数字时强制换行 */
+        overflow: hidden; /* 隐藏溢出部分 */
+        text-overflow: ellipsis; /* 显示省略符号来代表被隐藏的文本 */
+        display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+        -webkit-box-orient: vertical; /* 设置盒子内排列顺序为纵向 */
+        -webkit-line-clamp: 4; /* 限制块元素显示的文本的行数 */
+        // max-height: 123px;
+      }
+    }
+    .info-left {
+      width: 50px;
+      margin: 5px 10px;
+      height: 120px;
+    }
+    .info-left::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 5px;
+      background-color: #ccc;
+      position: absolute;
+      // position: relative;
+      left: 256px;
+      // top: 0px;
+    }
+    .info-left::after {
+      content: "";
+      width: 3px;
+      height: 80px;
+      border-radius: 5px;
+      background-color: #ccc;
+      position: absolute;
+      left: 256px;
+      // top: 28px;
+    }
+  }
+}

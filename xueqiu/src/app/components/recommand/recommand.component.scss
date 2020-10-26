@@ -1,0 +1,30 @@
+.newsList{
+  width: 540px;
+
+  .newsItem{
+    // position: relative;
+    padding: 1px;
+    // border-bottom: 2px solid #edf0f5;
+    height: 179.5px;
+
+    // display: flex;
+  }
+  .content{
+    // height: 92.5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    line-height: 1.6em;
+    max-height: 151px;
+  }
+  .user{
+    height: 8px;
+    border-bottom: 2px solid #edf0f5;
+    display: table;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #909499;
+  }
+}

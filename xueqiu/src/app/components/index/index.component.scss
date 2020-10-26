@@ -24,7 +24,7 @@
     color: orangered;
   }
   .svg svg{
-    padding: 1px;
+    padding: 7px;
     width: 140px;
     height: 56px;
     // transform: scale(.5);
@@ -46,7 +46,7 @@
   width: 540px;
   overflow: hidden;
   height: 110px;
-  margin: 0 auto;
+  // margin: 0 auto;
   .circleList{
     display: flex;
     justify-content: center;
@@ -57,6 +57,8 @@
       border: 2.5px solid #ccc;
       border-radius: 3px;
       margin: 5px;
+      cursor: pointer;
+
     }
   }
 }
@@ -66,6 +68,26 @@
   display: flex;
   // margin: 0 auto;
 
+}
+
+.newsTab{
+  font-size: 16px;
+  border-bottom: 1px solid #edf0f5;
+  display: flex;
+  .tabBtn{
+    position: relative;
+    color: #06c;
+    font-weight: 700;
+    margin-right: 4px;
+    display: inline-block;
+    padding: 8px;
+    color: #666c72;
+    cursor: pointer;
+
+  }
+  .active{
+    color: #06c;
+  }
 }
 .StockSlider_home__stock-index__item_1V7, .StockSlider_chart_2e2, svg {
   display: block;
