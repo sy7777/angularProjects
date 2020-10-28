@@ -27,4 +27,7 @@ export class NewsService {
 
   }
 
+  // 获取行业
+  async
+
 }

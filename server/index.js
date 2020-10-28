@@ -55,6 +55,20 @@ app.get('/api/index/hotStock', async (req, res) => {
   let result = await axios.get(httpUrl, options);
   res.json(result.data);
 })
+// 股票筛选数据
+app.get('/api/filter/tools', async (req, res) => {
+  // 获取首页
+  let httpUrl = `https://xueqiu.com/hq/screener`;
+  let result = await axios.get(httpUrl, options);
+
+  // 设置正则
+  let reg = /SNB.data.condition =(.*?);/igs;
+
+  // 匹配内容
+  let content = reg.exec(result.data)[1];
+  res.send(content);
+
+})
 
 // 股票新闻
 app.get('/api/index/news', async (req, res) => {
@@ -69,6 +83,32 @@ app.get('/api/index/news', async (req, res) => {
   let result = await axios.get(httpUrl, options);
   res.json(result.data);
 })
+
+// 获取股票
+// 关注人数：follow7d(本周新增关注人数)follow（最热门）
+// 讨论条数tweet tweet7d
+// 分享交易 deal7d
+app.get('/api/filter/stocks', async (req, res)=>{
+  const {order_by} = req.query;
+  const {page} = req.query;
+  const time = new Date().getTime();
+  // let httpUrl = `https://xueqiu.com/service/screener/screen?category=CN&size=10&order=desc&order_by=${order_by||"follow7d"}&only_count=0&page=${page||"1"}&_=${time}`;
+  let httpUrl = ` https://xueqiu.com/service/screener/screen?category=CN&size=10&order=desc&order_by=follow7d&only_count=0&page=1&_=1603866641779`;
+
+  let result = await axios.get(httpUrl, options).catch(e=>{
+    console.log(e);
+  });
+  res.json(result.data);
+})
+app.get('/api/filter/industries', async (req, res)=>{
+  const time = new Date().getTime();
+  let httpUrl = `https://xueqiu.com/service/screener/industries?category=CN&_=${time}`;
+  let result = await axios.get(httpUrl, options).catch(e=>{
+    console.log(e);
+  });
+  res.json(result.data);
+})
+
 app.listen(8080, () => {
   console.log("server start:", "http://localhost:8080");
 });
