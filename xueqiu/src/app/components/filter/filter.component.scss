@@ -26,10 +26,10 @@
         transform: translate(1px, 0);
         line-height: 38px;
         text-align: center;
-        border-right: 1px solid #cc
+        border: 1px solid #ccc;
       }
       .tab-item.active{
-        border: 1px solid #fff;
+        border-right: 1px solid #fff !important;
       }
     }
     .tools-content{
@@ -44,7 +44,8 @@
           // width: 100%;
           padding: 0px 15px;
           .check-item{
-            width: 33.33%;
+            // width: 33.33%;
+            flex-basis: 33.33%;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -58,6 +59,17 @@
     width: 640px;
       .sx-item{
         display: flex;
+        .sx-span{
+          width: 16.7%;
+          text-align: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .sx-span input1{
+            width: 106px;
+            background: red;
+          }
+        }
       }
       .sx-stock-item{
         display: flex;

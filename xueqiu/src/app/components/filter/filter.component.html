@@ -40,7 +40,7 @@
     <h3>条件设置</h3>
     <div class="tools">
       <div class="tool-tabs">
-        <div class="tab-item" *ngFor="let item of tabsList" [class]="{ active: currentTab == item }"
+        <div class="tab-item" *ngFor="let item of tabsList" [ngClass]="{ active: currentTab == item }"
           (click)="toggleTabs(item)">
           {{ item }}
         </div>
@@ -114,18 +114,18 @@
             {{item.name}}
           </div>
           <div class="sx-span">
-            <input type="text" name="" id="" [(ngModel)]="item.cmin">
+            <input type="text" style="width: 108px;" [(ngModel)]="item.cmin">
             <!-- {{item.min}} -->
           </div>
           <div class="sx-span">
-            <input type="range" [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmin">
+            <input type="range" style="width: 108px;"  [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmin">
           </div>
           <div class="sx-span">
-            <input type="text" name="" id="" [(ngModel)]="item.cmax">
+            <input type="text" style="width: 108px;"  [(ngModel)]="item.cmax">
             <!-- {{item.max}} -->
           </div>
           <div class="sx-span">
-            <input type="range" [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmax">
+            <input type="range" style="width: 108px;"  [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmax">
           </div>
           <div class="sx-span">
             <button>删除</button>
@@ -141,7 +141,7 @@
      股票：{{item.name}} - 当前价：{{item.current}} - 当日涨跌幅：{{item.pct}}% - 股票代码：{{item.symbol}}
     </div>
 
-    <div>12413526274</div>
+
   </div>
   <div class="right"></div>
 </div>

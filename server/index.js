@@ -1,6 +1,7 @@
 // 引入express
 let express = require("express");
 let axios = require("axios");
+require('dotenv').config();
 // 实例化一个APP
 let app = express();
 
