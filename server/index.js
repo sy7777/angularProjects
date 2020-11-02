@@ -3,6 +3,8 @@ let express = require("express");
 let axios = require("axios");
 // 实例化一个APP
 let app = express();
+
+const PORT = process.env.PORT || 3000;
 // 中间键做跨域操作
 app.use((req, res, next)=>{
   res.append('Access-Control-Allow-Origin',"*");
@@ -133,6 +135,6 @@ app.get('/api/filter/sxStock', async (req, res)=>{
   res.json(result.data);
 })
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("server start:", "http://localhost:8080");
 });

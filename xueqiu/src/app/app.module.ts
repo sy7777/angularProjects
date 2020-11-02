@@ -12,6 +12,7 @@ import { DayInfoComponent } from './components/day-info/day-info.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { TimePipe } from './pipes/time.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TimePipe } from './pipes/time.pipe';
     NewStockComponent,
     RecommandComponent,
     DayInfoComponent,
-    TimePipe
+    TimePipe,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

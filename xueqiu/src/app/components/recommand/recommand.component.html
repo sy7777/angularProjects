@@ -2,7 +2,7 @@
   <div class="newsItem" *ngFor="let item of newsList">
     <div class="content">
       <h3>{{item.original_status.rawTitle}}</h3>
-      <div>{{item.original_status.description}}</div>
+      <div [innerHTML]="item.original_status.description | safeHtml"></div>
     </div>
 
     <div class="user">
