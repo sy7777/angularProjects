@@ -5,7 +5,7 @@
       <span>港股</span>
       <span>美股</span>
     </div>
-
+    <h3>选择范围</h3>
     <div class="filter-range">
       <div class="range-item">
         <span>市场</span>
@@ -15,7 +15,83 @@
           <option value="">深市A股</option>
         </select>
       </div>
+
+      <div class="range-item">
+        <span>行业</span>
+        <select name="range-market" id="">
+          <option value="">全部A股</option>
+          <option value="{{ item.encode }}" *ngFor="let item of industriesList">
+            {{ item.name }}
+          </option>
+          <!-- <option value="">深市A股</option> -->
+        </select>
+      </div>
+
+      <div class="range-item">
+        <span>地域板块</span>
+        <select name="range-market" id="">
+          <option value="">全部A股</option>
+          <option value="{{ item }}" *ngFor="let item of areasList">
+            {{ areas[item] }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <h3>条件设置</h3>
+    <div class="tools">
+      <div class="tool-tabs">
+        <div class="tab-item" *ngFor="let item of tabsList" [class]="{ active: currentTab == item }"
+          (click)="toggleTabs(item)">
+          {{ item }}
+        </div>
+      </div>
+      <div class="tools-content">
+        <div class="content" *ngIf="currentTab == '财务报表'">
+          <h4>利润表</h4>
+          <div class="content-item">
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][0]['利润表']">
+              <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
+              <label for="">{{ item.name }}</label>
+            </div>
+          </div>
+
+          <h4>每股数据</h4>
+          <div class="content-item">
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][1]['每股数据']">
+              <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
+              <label for="">{{ item.name }}</label>
+            </div>
+          </div>
+
+          <h4>资产负债表</h4>
+          <div class="content-item">
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][2]['资产负债表']">
+              <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
+              <label for="">{{ item.name }}</label>
+            </div>
+          </div>
+
+          <h4>现金流量表</h4>
+          <div class="content-item">
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][3]['现金流量表']">
+              <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
+              <label for="">{{ item.name }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="content" *ngIf="currentTab !== '财务报表'">
+          <div class="content-item">
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab]">
+              <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
+              <label for="">{{ item.name }}</label>
+            </div>
+          </div>
+        </div>
+
+<!--         <div *ngIf="true; else elseContent">为真</div>
+        <ng-template #elseContent> 维嘉</ng-template> -->
+      </div>
     </div>
   </div>
+  <div class="right"></div>
 </div>
-

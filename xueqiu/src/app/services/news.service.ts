@@ -1,6 +1,8 @@
+import { query } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { TmplAstTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import Axios from 'axios';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,6 +30,28 @@ export class NewsService {
   }
 
   // 获取行业
-  async
+  async getIndustries(){
+    const httpUrl = this.host + `api/filter/industries`;
+    const result = await Axios.get(httpUrl);
+    return result.data;
+  }
+  // 获取地区
+  async getAreas(){
+    const httpUrl = this.host + `api/filter/areas`;
+    const result = await Axios.get(httpUrl);
+    return result.data;
+  }
+  // 获取条件股票
+  async getFilterStock(options){
+    const httpUrl = this.host + `api/filter/stocks`;
+    const result = await Axios.get(httpUrl,options);
+    return result.data;
+  }
+  // 获取工具
+  async getTools(){
+    const httpUrl = this.host + `api/filter/tools`;
+    const result = await Axios.get(httpUrl);
+    return result.data;
+  }
 
 }

@@ -89,8 +89,8 @@ app.get('/api/index/news', async (req, res) => {
 // 讨论条数tweet tweet7d
 // 分享交易 deal7d
 app.get('/api/filter/stocks', async (req, res)=>{
-  const {order_by} = req.query;
-  const {page} = req.query;
+  const {order_by, page} = req.query;
+  // const {page} = req.query;
   const time = new Date().getTime();
   // let httpUrl = `https://xueqiu.com/service/screener/screen?category=CN&size=10&order=desc&order_by=${order_by||"follow7d"}&only_count=0&page=${page||"1"}&_=${time}`;
   let httpUrl = ` https://xueqiu.com/service/screener/screen?category=CN&size=10&order=desc&order_by=follow7d&only_count=0&page=1&_=1603866641779`;
@@ -103,6 +103,14 @@ app.get('/api/filter/stocks', async (req, res)=>{
 app.get('/api/filter/industries', async (req, res)=>{
   const time = new Date().getTime();
   let httpUrl = `https://xueqiu.com/service/screener/industries?category=CN&_=${time}`;
+  let result = await axios.get(httpUrl, options).catch(e=>{
+    console.log(e);
+  });
+  res.json(result.data);
+})
+app.get('/api/filter/areas', async (req, res)=>{
+  const time = new Date().getTime();
+  let httpUrl = `https://xueqiu.com/service/screener/areas?_=${time}`;
   let result = await axios.get(httpUrl, options).catch(e=>{
     console.log(e);
   });
