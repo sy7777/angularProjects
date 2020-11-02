@@ -49,7 +49,7 @@ export class RecommandComponent implements OnInit {
 
       }) */
       this.route.queryParams.subscribe((params)=>{
-        console.log(params);
+        // console.log(params);
 
       })
       this.news.getData(api).subscribe((res)=>{

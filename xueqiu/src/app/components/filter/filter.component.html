@@ -8,17 +8,17 @@
     <h3>选择范围</h3>
     <div class="filter-range">
       <div class="range-item">
-        <span>市场</span>
-        <select name="range-market" id="">
-          <option value="all">全部A股</option>
-          <option value="">沪市A股</option>
-          <option value="">深市A股</option>
+        <span>市场: </span>
+        <select name="range-market" id="" [(ngModel)]='exchange'>
+          <option value="sh_sz">全部A股</option>
+          <option value="sha">沪市A股</option>
+          <option value="sza">深市A股</option>
         </select>
       </div>
 
       <div class="range-item">
-        <span>行业</span>
-        <select name="range-market" id="">
+        <span>行业: </span>
+        <select name="range-market" id="" [(ngModel)]='indcode'>
           <option value="">全部A股</option>
           <option value="{{ item.encode }}" *ngFor="let item of industriesList">
             {{ item.name }}
@@ -28,8 +28,8 @@
       </div>
 
       <div class="range-item">
-        <span>地域板块</span>
-        <select name="range-market" id="">
+        <span>地域板块: </span>
+        <select name="range-market" id="" [(ngModel)]='areacode'>
           <option value="">全部A股</option>
           <option value="{{ item }}" *ngFor="let item of areasList">
             {{ areas[item] }}
@@ -49,7 +49,8 @@
         <div class="content" *ngIf="currentTab == '财务报表'">
           <h4>利润表</h4>
           <div class="content-item">
-            <div class="check-item" *ngFor="let item of toolsObj[currentTab][0]['利润表']">
+            <!-- <div class="check-item" *ngFor="let item of toolsObj[currentTab][0]['利润表']" (change)="checkEvent(item.field + '.20200930',item.name)"> -->
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][0]['利润表']" (change)="checkEvent(item)">
               <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
               <label for="">{{ item.name }}</label>
             </div>
@@ -57,7 +58,8 @@
 
           <h4>每股数据</h4>
           <div class="content-item">
-            <div class="check-item" *ngFor="let item of toolsObj[currentTab][1]['每股数据']">
+            <!-- <div class="check-item" *ngFor="let item of toolsObj[currentTab][1]['每股数据']" (change)="checkEvent(item.field + '.20200930',item.name)"> -->
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][1]['每股数据']" (change)="checkEvent(item)">
               <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
               <label for="">{{ item.name }}</label>
             </div>
@@ -65,7 +67,8 @@
 
           <h4>资产负债表</h4>
           <div class="content-item">
-            <div class="check-item" *ngFor="let item of toolsObj[currentTab][2]['资产负债表']">
+            <!-- <div class="check-item" *ngFor="let item of toolsObj[currentTab][2]['资产负债表']" (change)="checkEvent(item.field + '.20200930',item.name)"> -->
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][2]['资产负债表']" (change)="checkEvent(item)">
               <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
               <label for="">{{ item.name }}</label>
             </div>
@@ -73,7 +76,8 @@
 
           <h4>现金流量表</h4>
           <div class="content-item">
-            <div class="check-item" *ngFor="let item of toolsObj[currentTab][3]['现金流量表']">
+            <!-- <div class="check-item" *ngFor="let item of toolsObj[currentTab][3]['现金流量表']" (change)="checkEvent(item.field + '.20200930',item.name)"> -->
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab][3]['现金流量表']" (change)="checkEvent(item)">
               <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
               <label for="">{{ item.name }}</label>
             </div>
@@ -81,17 +85,63 @@
         </div>
         <div class="content" *ngIf="currentTab !== '财务报表'">
           <div class="content-item">
-            <div class="check-item" *ngFor="let item of toolsObj[currentTab]">
+            <!-- <div class="check-item" *ngFor="let item of toolsObj[currentTab]" (change)="checkEvent(item.field + '.20200930',item.name)"> -->
+            <div class="check-item" *ngFor="let item of toolsObj[currentTab]" (change)="checkEvent(item)">
               <input type="checkbox" name="{{ item.field }}" value="{{ item.field }}" />
               <label for="">{{ item.name }}</label>
             </div>
           </div>
         </div>
 
-<!--         <div *ngIf="true; else elseContent">为真</div>
+        <!--         <div *ngIf="true; else elseContent">为真</div>
         <ng-template #elseContent> 维嘉</ng-template> -->
       </div>
     </div>
+
+    <h3>筛选条件</h3>
+    <hr>
+    <div class="sx-list">
+      <div class="sx-header">
+        <span class="sx-span">条件</span>
+        <span class="sx-span">最小值</span>
+        <span class="sx-span">最大值</span>
+        <span class="sx-span">删除</span>
+      </div>
+
+      <div class="sx-content">
+        <div class="sx-item" *ngFor="let item of sxList">
+          <div class="sx-span">
+            {{item.name}}
+          </div>
+          <div class="sx-span">
+            <input type="text" name="" id="" [(ngModel)]="item.cmin">
+            <!-- {{item.min}} -->
+          </div>
+          <div class="sx-span">
+            <input type="range" [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmin">
+          </div>
+          <div class="sx-span">
+            <input type="text" name="" id="" [(ngModel)]="item.cmax">
+            <!-- {{item.max}} -->
+          </div>
+          <div class="sx-span">
+            <input type="range" [attr.min]='item.min' [attr.max]='item.max' [(ngModel)]="item.cmax">
+          </div>
+          <div class="sx-span">
+            <button>删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button (click)="getSg()">开始选股</button>
+    </div>
+    <div class="sx-stock-item" *ngFor="let item of sxStockList">
+     股票：{{item.name}} - 当前价：{{item.current}} - 当日涨跌幅：{{item.pct}}% - 股票代码：{{item.symbol}}
+    </div>
+
+    <div>12413526274</div>
   </div>
   <div class="right"></div>
 </div>

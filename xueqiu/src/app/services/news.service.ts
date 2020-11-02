@@ -53,5 +53,18 @@ export class NewsService {
     const result = await Axios.get(httpUrl);
     return result.data;
   }
+  // 获取字段范围
+  async getRange(field){
+    const httpUrl = this.host + `api/filter/range?filed=${field}`;
+    const result = await Axios.get(httpUrl);
+    return result.data;
+  }
+
+  // 获取筛选股票
+  async getsxStock(options){
+    const httpUrl = this.host + `api/filter/sxStock`;
+    const result = await Axios.get(httpUrl,{params:options});
+    return result.data;
+  }
 
 }

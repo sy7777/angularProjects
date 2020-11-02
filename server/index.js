@@ -116,6 +116,22 @@ app.get('/api/filter/areas', async (req, res)=>{
   });
   res.json(result.data);
 })
+app.get('/api/filter/range', async (req, res)=>{
+  const time = new Date().getTime();
+  let filed = req.query.filed?req.query.filed:"npana.20200930";
+  let httpUrl = `https://xueqiu.com/service/screener/values?category=CN&field=${filed}&_=${time}`;
+  let result = await axios.get(httpUrl, options).catch(e=>{
+    console.log(e);
+  });
+  res.json(result.data);
+})
+
+app.get('/api/filter/sxStock', async (req, res)=>{
+  const time = new Date().getTime();
+  let httpUrl = `https://xueqiu.com/service/screener/screen`;
+  let result = await axios.get(httpUrl,{params: req.query});
+  res.json(result.data);
+})
 
 app.listen(8080, () => {
   console.log("server start:", "http://localhost:8080");
