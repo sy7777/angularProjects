@@ -1,6 +1,5 @@
-import { query } from '@angular/animations';
+
 import { HttpClient } from '@angular/common/http';
-import { TmplAstTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import Axios from 'axios';
 import { Observable } from 'rxjs';
@@ -67,4 +66,12 @@ export class NewsService {
     return result.data;
   }
 
+  async getIndexData(){
+    const httpUrl =environment.host + `api/index`;
+    let result = await Axios.get(httpUrl);
+    return result.data.data.items;
+    // this.quoteList = result.data.data.items
+    // console.log(this.quoteList);
+
+  }
 }

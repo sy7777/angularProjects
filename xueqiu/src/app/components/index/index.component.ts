@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import Axios from 'axios';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-index',
@@ -10,7 +10,7 @@ import Axios from 'axios';
 export class IndexComponent implements OnInit {
   circlePosition= {transform: "translate(0px)"};
   quoteList = []
-  constructor(public router: Router) {
+  constructor(public router: Router, private service:NewsService) {
     // 在这里调用
     this.getData();
   }
@@ -19,11 +19,11 @@ export class IndexComponent implements OnInit {
   }
 
   async getData(){
-    const httpUrl = "http://localhost:8080/api/index";
-    let result = await Axios.get(httpUrl);
+/*     const httpUrl = "http://localhost:8080/api/index";
+    let result = await Axios.get(httpUrl); */
 
-    this.quoteList = result.data.data.items
-    // console.log(this.quoteList);
+    this.quoteList = await this.service.getIndexData();
+    console.log(this.quoteList);
 
   }
 
