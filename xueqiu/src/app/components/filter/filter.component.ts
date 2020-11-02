@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
+  industries = [];
   constructor() { }
 
   ngOnInit(): void {
